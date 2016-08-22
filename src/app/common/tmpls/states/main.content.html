@@ -1,0 +1,65 @@
+<div class="row main-content">
+    <div class="content">
+        <div class="items-tools">
+            <div class="item-result">
+                {{homec.getResultsLength()}} results
+            </div>
+            <div class="item-filter">
+                <div class="sort">
+                    <span>Sort to:</span>
+                    <a href="#" class="blue-link" ng-click="reverse = !reverse">Relevant ↓</a>
+                </div>
+                <div class="tabs">
+                    <button ng-click="homec.isTabs = false" class="btn offer-btn" ng-class="{'selected' : !homec.isTabs}"><span class="btn-icon icon-offers"></span>Offer</button>
+                    <button ng-click="homec.isTabs = true" class="btn seller-btn" ng-class="{'selected' : homec.isTabs}"><span class="btn-icon icon-user"></span>Sellers</button>
+                </div>
+            </div>
+        </div>
+        <div class="tabs-content-is">
+            <div class="items show-items" ng-if="!homec.isTabs">
+
+                <div class="item" ng-repeat="offerItem in homec.offerArray | orderBy:'title':reverse">
+                    <a href="seller-Offers.html">
+                        <div class="item-img" ng-style="{'background-image': 'url(' + offerItem.photos[0].src + ')'}"></div>
+                    </a>
+
+                    <div class="item-description">
+                        <div class="item-info">
+                            <a href="seller-Offers.html">
+                                <div class="item-title">{{offerItem.title}}</div>
+                            </a>
+
+                            <div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong> By:
+                                <strong>18 jul</strong></div>
+                        </div>
+                        <div class="item-text">
+                            {{offerItem.description}}
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn white-btn" ng-click="homec.setOfferLimit()" ng-if="homec.isMaxOfferLimit()">SEE MORE</a>
+            </div>
+            <div class="items show-items seller-items" ng-if="homec.isTabs">
+                <div class="item" ng-repeat="sellerItem in homec.sellersArray | orderBy:'title':reverse">
+                    <a href="seller-detail.html">
+                        <div class="item-img" ng-style="{'background-image': 'url(' + sellerItem.photo + ')'}"></div>
+                    </a>
+
+                    <div class="item-description">
+                        <div class="item-info">
+                            <a href="seller-detail.html">
+                                <div class="item-title">{{sellerItem.title}}</div>
+                            </a>
+                            <button class="btn follow-btn"
+                                    ng-class="{'follower': !sellerItem.isFollower}"
+                                    ng-click="sellerItem.setIsFollower()">
+                                {{sellerItem.buttonName()}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="btn white-btn" ng-click="homec.setSellersLimit()" ng-if="homec.isMaxSellersLimit()">SEE MORE</a>
+            </div>
+        </div>
+    </div>
+</div>

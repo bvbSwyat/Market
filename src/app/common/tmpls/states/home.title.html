@@ -1,0 +1,12 @@
+    <div class="row page-title" ng-style="{'background-image': 'url(' + title.data.photo + ')'}">
+
+    <div class="title">
+        <a ui-sref="home.market-details({ region_id: title.regionId, city_id: title.cityId, market_id: title.marketId })"><h1>{{title.data.title}}</h1></a>
+
+        <p>{{title.data.address}}</p>
+
+        <a ui-sref="home.market-offers({ region_id: title.regionId, city_id: title.cityId, market_id: title.marketId })"
+           ng-if="title.isDetails" class="btn">Weekly offers</a>
+
+    </div>
+</div>

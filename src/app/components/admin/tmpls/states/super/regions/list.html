@@ -1,0 +1,22 @@
+<div class="row admin-main-content">
+    <div class="admin-content animate" ng-class="{active: sRegions.regionsList}">
+        <h4>Regions</h4>
+        <button class="btn add-btn" ui-sref="admin.super.regions.add">Add region</button>
+        <div class="row admin-items">
+            <div class="admin-item region-items" ng-repeat="region in sRegions.regionsList">
+                <div class="item-info">
+                    <div class="title">{{region.title}}</div>
+                </div>
+                <div class="item-tools">
+                    <div class="edit-btn">
+                        <span class="icon-edit" ui-sref="admin.super.regions.edit({ region_id: region.id })"></span>
+                    </div>
+                    <div class="delete-btn">
+                        <span class="icon-delete" ui-sref="admin.super.regions.remove({ region_id: region.id })"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn white-btn">SEE MORE</a>
+    </div>
+</div>

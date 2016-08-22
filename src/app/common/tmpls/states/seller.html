@@ -1,0 +1,68 @@
+<div class="row cont-1">
+    <div class="row cont-2 main-cont">
+        <div class="row main-content">
+            <div class="content">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Amsterdam</a></li>
+                    <li class="active">{{sellerCtrl.sellerData.title}}</li>
+                </ul>
+
+                <div class="detail-seller">
+                    <div class="seller-img">
+                        <div class="image">
+                            <img ng-src="{{sellerCtrl.sellerData.photo}}" alt="Seller Image">
+                        </div>
+
+                        <button href="#" class="btn follow-btn">Follow</button>
+                    </div>
+                    <div class="seller-description">
+                        <h3>{{sellerCtrl.sellerData.title}}</h3>
+
+                        <div class="seller-description-text">
+                            <p>{{sellerCtrl.sellerData.description}}</p>
+
+                            <p><span class="icon-phone"></span>{{sellerCtrl.sellerData.phone}}</p>
+                            <a href="#" class="blue-link"><span class="icon-mail"></span>{{sellerCtrl.sellerData.email}}</a>
+
+                            <div class="social">
+                                <a href="#"><span class="icon-fb"></span></a>
+                                <a href="#"><span class="icon-instagram"></span></a>
+                                <a href="#"><span class="icon-in"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="all-detail">
+                    <h4>All weekly offers</h4>
+
+                    <div class="items">
+                        <div class="item" ng-repeat="offer in sellerCtrl.allOffers">
+                            <a href="seller-Offers.html">
+                                <div class="item-img"
+                                     style="background-image: url('images/img/spring-produce-2.jpg')"></div>
+                            </a>
+
+                            <div class="item-description">
+                                <div class="item-info">
+                                    <a href="seller-Offers.html">
+                                        <div class="item-title">{{offer.title}}</div>
+                                    </a>
+
+                                    <div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>
+                                        By:
+                                        <strong>18 jul</strong></div>
+                                </div>
+                                <div class="item-text">
+                                    {{offer.description}}
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="btn white-btn">SEE MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

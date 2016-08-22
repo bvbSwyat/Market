@@ -1,0 +1,27 @@
+<div class="row admin-main-content">
+    <div class="admin-content">
+        <h4>Cities</h4>
+        <button class="btn add-btn" ui-sref="admin.super.cities.add">Add city</button>
+       <div class="animate" ng-class="{active: sCities.citiesList}">
+          <div class="row admin-items">
+              <div class="admin-item market-items" ng-repeat="city in sCities.citiesList">
+                  <img ng-src="{{city.photo}}" ng-class="{'no-image': !city.photo}" alt="">
+                  <div class="item-info">
+                      <div class="title">{{city.title}}</div>
+
+                      <div class="address">Zuid-Holland</div>
+                  </div>
+                  <div class="item-tools">
+                      <div class="edit-btn" ui-sref="admin.super.cities.edit({ city_id: city.id })">
+                          <span class="icon-edit"></span>
+                      </div>
+                      <div class="delete-btn" ui-sref="admin.super.cities.remove({ city_id: city.id })">
+                          <span class="icon-delete"></span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <a href="#" class="btn white-btn">SEE MORE</a>
+         </div>
+    </div>
+</div>

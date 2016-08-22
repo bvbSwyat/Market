@@ -1,0 +1,27 @@
+<div class="row admin-main-content">
+    <div class="admin-content animate" ng-class="{active: sDirectors.directorsList}">
+        <h4>Directors</h4>
+        <button class="btn add-btn" ui-sref="admin.super.directors.add">Add director</button>
+        <div class="row admin-items">
+            <div class="admin-item director-items" ng-repeat="director in sDirectors.directorsList">
+                <div class="item-info">
+                    <div class="title">{{director.username}}</div>
+                    <div class="description">
+                        {{director.email}}<br>
+                        {{director.phone}}
+                    </div>
+                </div>
+                <div class="item-tools">
+                    <div class="edit-btn" ui-sref="admin.super.directors.edit({ director_id: director.id })">
+                        <span class="icon-edit"></span>
+                    </div>
+                    <div class="delete-btn" ui-sref="admin.super.directors.remove({ director_id: director.id })">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#" class="btn white-btn">SEE MORE</a>
+    </div>
+</div>

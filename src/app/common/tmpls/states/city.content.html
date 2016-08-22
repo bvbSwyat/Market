@@ -1,0 +1,49 @@
+<div class="row main-content">
+    <div class="content">
+        <div class="items-tools">
+            <div class="item-result">
+                235 results
+            </div>
+            <div class="item-filter">
+                <div class="sort">
+                    <span>Sort to:</span>
+                    <a href="#" class="blue-link">Relevant ↓</a>
+                </div>
+                <div class="tabs">
+                    <button class="btn map-btn "><span class="btn-icon icon-map"></span>Maps</button>
+                    <button class="btn list-btn selected"><span class="btn-icon icon-list"></span>List</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabs-content">
+            <div class="items list-item show-items">
+                <div class="item" ng-repeat="market in cityCtrl.allMarkets">
+                    <a href="index.html">
+                        <div class="item-img" ng-style="{'background-image': 'url(' + market.photo + ')'}">
+                            <a ui-sref="home.market-offers({ region_id: cityCtrl.regionId, city_id: cityCtrl.cityId, market_id: market.id })"
+                               class="btn">Weekly offers</a>
+                        </div>
+                    </a>
+                    <div class="item-description">
+                        <div class="item-info">
+                            <a ui-sref="home.market-details({ region_id: cityCtrl.regionId, city_id: cityCtrl.cityId, market_id: market.id })" >
+                                <div class="item-title">{{market.title}}</div>
+                            </a>
+                        </div>
+                        <div class="item-text">
+                            {{market.description}}
+                        </div>
+                    </div>
+                </div>
+
+
+                <a href="#" class="btn white-btn">SEE MORE</a>
+            </div>
+            <div class="items maps">
+                <div class="map" id="map">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

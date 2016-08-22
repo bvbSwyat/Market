@@ -1,0 +1,258 @@
+<div class="row admin-main-content">
+    <div class="admin-content">
+        <a ui-sref="admin.super.markets.list" class="back"><span class="icon-back"></span>Back</a>
+        <button class="btn add-btn green-btn" ng-click="sMarkets.market.save()">Save</button>
+        <div class="row add-field">
+            <div class="add-market-image-side">
+                <div class="image-field">
+                    <div class="hover-effect"></div>
+                    <img alt="" ng-if="!sMarkets.market.newPhoto">
+                    <img ng-if="sMarkets.market.newPhoto" ng-src="data:{{sMarkets.market.newPhoto.filetype}};base64,{{sMarkets.market.newPhoto.base64}}" alt="">
+                    <input type="file" base-sixty-four-input ng-model="sMarkets.market.newPhoto">
+                    <span ng-if="!sMarkets.market.newPhoto">PHOTO</span>
+                    <span ng-if="sMarkets.market.newPhoto">EDIT PHOTO</span>
+                </div>
+            </div>
+            <div class="add-market-form-side">
+                <form>
+                    <div class="input-group">
+                        <input class="gray"
+                               type="text"
+                               placeholder="Name of Market"
+                               ng-model="sMarkets.market.title">
+                        <input class="gray"
+                               type="text"
+                               placeholder="Telephone"
+                               ng-model="sMarkets.market.phone">
+                        <input class="gray"
+                               type="email"
+                               placeholder="Email"
+                               ng-model="sMarkets.market.email">
+                        <!--<ol class="nya-bs-select" title="Region"-->
+                                <!--ng-model="sMarkets.market.region"-->
+                                <!--ng-change="sMarkets.getCitiesByRegion(sMarkets.market.region.id)">-->
+                            <!--<li class="nya-bs-option" ng-repeat="region in sMarkets.regions">-->
+                              <!--{{region.title}}{{}}-->
+                            <!--</li>-->
+                        <!--</ol>-->
+                        <select class="gray" name="sel2"
+                                ng-model="sMarkets.market.region"
+                                ng-options="region.title for region in sMarkets.regions"
+                                ng-change="sMarkets.getCitiesByRegion(sMarkets.market.region.id)">
+                                <option ng-if="!sMarkets.market.region_id" value="" selected="selected" disabled>Region</option>
+                        </select>
+                        <select class="gray" name="sel2"
+                                ng-model="sMarkets.market.city"
+                                ng-options="city.title for city in sMarkets.cities"
+                                ng-disabled="sMarkets.regions.length < 0">
+                                <option ng-if="!sMarkets.market.city_id" value="" selected="selected" disabled>City</option>
+                        </select>
+                        <select class="gray" name="sel2" ng-model="sMarkets.market.director" ng-options="director.username for director in sMarkets.directors">
+                            <option ng-if="!sMarkets.market.user_id" value="" selected="selected">Director</option>
+                        </select>
+                    </div>
+                    <div class="address-marker">
+                        <input class="gray"
+                               type="text"
+                               placeholder="Address"
+                               ng-model="sMarkets.market.address"
+                               ng-blur='sMarkets.market.updateLocation(sMarkets.market.address)'>
+                        <button type="button" class="marker" ng-click="sMarkets.toggleMarketMap(sMarkets.market, 'add')"><span class="icon-map"></span> Marker</button>
+                    </div>
+                    <textarea rows="8"
+                              cols="50"
+                              class="gray"
+                              placeholder="About our market"
+                              ng-model="sMarkets.market.description"></textarea>
+
+                    <div class="add-market-days">
+                        <div class="days-time">
+                            <div class="days-time-week time-title">
+                                  <div class="days">
+                                      <div class="title"><span class="required">Day of work</span></div>
+                                  </div>
+                              <div class="time">
+                                      <div class="title"><span class="required">Time</span></div>
+                                </div>
+                            </div>
+                            <div class="days-time-week" ng-repeat="time in sMarkets.market.time track by $index">
+                                <div class="days">
+                                    <div class="days-week">
+                                        <div class="add-day">
+                                            <input type="checkbox"
+                                                   class="day"
+                                                   id="chkMon{{$index}}"
+                                                   ng-click="sMarkets.radioDay('monday', time.id)"
+                                                   ng-model="time.monday"
+                                                   >
+                                            <label for="chkMon{{$index}}">
+                                                Mon
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox"
+                                                   class="day" id="chkTue{{$index}}"
+                                                   ng-click="sMarkets.radioDay('tuesday', time.id)"
+                                                   ng-model="time.tuesday">
+                                            <label for="chkTue{{$index}}">
+                                                Tue
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox" class="day"
+                                                   id="chkWed{{$index}}"
+                                                   ng-click="sMarkets.radioDay('wednesday', time.id)"
+                                                   ng-model="time.wednesday">
+                                            <label for="chkWed{{$index}}">
+                                                Wed
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox" class="day"
+                                                   id="chkThu{{$index}}"
+                                                   ng-click="sMarkets.radioDay('thursday', time.id)"
+                                                   ng-model="time.thursday">
+                                            <label for="chkThu{{$index}}">
+                                                Thu
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox" class="day"
+                                                   id="chkFri{{$index}}"
+                                                   ng-click="sMarkets.radioDay('friday', time.id)"
+                                                   ng-model="time.friday">
+                                            <label for="chkFri{{$index}}">
+                                                Fri
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox" class="day"
+                                                   id="chkSat{{$index}}"
+                                                   ng-click="sMarkets.radioDay('saturday', time.id)"
+                                                   ng-model="time.saturday">
+                                            <label for="chkSat{{$index}}">
+                                                Sat
+                                            </label>
+                                        </div>
+                                        <div class="add-day">
+                                            <input type="checkbox" class="day"
+                                                   id="chkSun{{$index}}"
+                                                   ng-click="sMarkets.radioDay('sunday', time.id)"
+                                                   ng-model="time.sunday">
+                                            <label for="chkSun{{$index}}">
+                                                Sun
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <div class="time-week">
+                                        <select name="sel2" class="gray-small"
+                                                ng-model="time.from_h"
+                                                ng-options="hour for hour in sMarkets.hours">
+                                        </select>
+                                        :
+                                        <select name="sel2" class="gray-small"
+                                                ng-model="time.from_m"
+                                                ng-options="hour for hour in sMarkets.minutes">
+                                        </select>
+                                        —
+                                        <select name="sel2" class="gray-small"
+                                                ng-model="time.to_h"
+                                                ng-options="hour for hour in sMarkets.hours">
+                                        </select>
+                                        :
+                                        <select name="sel2" class="gray-small"
+                                                ng-model="time.to_m"
+                                                ng-options="hour for hour in sMarkets.minutes">
+                                        </select>
+                                    </div>
+                                </div>
+                              <div class="add-delete-day">
+                                <button class="add-delete-btn">
+                                  <span ng-class="{'icon-plus-2': $index == 0, 'icon-del-2': $index > 0}"
+                                        ng-click="$index > 0 ? sMarkets.market.removeLine($index) : sMarkets.market.addDayLine()">
+                                  </span>
+                                </button>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="extra-date">
+                        <div class="title">Extra date</div>
+
+                        <button type="button"
+                                class="btn extra-date-btn"
+                                ng-click="sMarkets.openExtraDate()">+ Extra date</button>
+                    </div>
+                    <div class="row social input-group">
+                        <input class="gray"
+                               type="text"
+                               ng-model="sMarkets.market.group_facebook"
+                               placeholder="Facebook">
+                        <input class="gray"
+                               type="text"
+                               placeholder="Instagram"
+                              ng-model="sMarkets.market.group_instagram">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-show="sMarkets.isShowDP">
+    <div class="extra-day popup" style="z-index: 999">
+        <form action="">
+            <div class="swiper-container calendar-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div>
+                            <multiple-date-picker ng-show="sMarkets.dayType" ng-model="sMarkets.dayOffArray"></multiple-date-picker>
+                            <multiple-date-picker ng-show="!sMarkets.dayType" ng-model="sMarkets.dayOnArray"></multiple-date-picker>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="day-on-off">
+                <div class="radio">
+                    <input type="radio" id="day-off" name="day" class="day-radio"
+                           ng-model="sMarkets.dayType" checked ng-value="true">
+                    <label for="day-off">Day off</label>
+                </div>
+                <div class="radio">
+                    <input type="radio" id="day-on" name="day"
+                           ng-model="sMarkets.dayType" class="day-radio" ng-value="false">
+                    <label for="day-on">Day on</label>
+                </div>
+            </div>
+            <div class="time" ng-show="!sMarkets.dayType">
+                <div class="title"><span class="required">Time</span></div>
+                <div class="hours">
+                    <select name="sel2" class="gray-small"
+                            ng-model="sMarkets.extra_from_h"
+                            ng-options="hour for hour in sMarkets.hours">
+                    </select>
+                    :
+                    <select name="sel2" class="gray-small"
+                            ng-model="sMarkets.extra_from_m"
+                            ng-options="hour for hour in sMarkets.minutes">
+                    </select>
+                    —
+                    <select name="sel2" class="gray-small"
+                            ng-model="sMarkets.extra_to_h"
+                            ng-options="hour for hour in sMarkets.hours">
+                    </select>
+                    :
+                    <select name="sel2" class="gray-small"
+                            ng-model="sMarkets.extra_to_m"
+                            ng-options="hour for hour in sMarkets.minutes">
+                    </select>
+                </div>
+            </div>
+            <button type="button" class="btn extra-day-close-btn" ng-click="sMarkets.saveExtraDate()">ADD</button>
+        </form>
+    </div>
+
+    <div ng-click="sMarkets.isShowDP = false" class="popup-background"></div>
+</div>

@@ -1,0 +1,282 @@
+<div class="row cont-1">
+    <div class="row cont-2 main-cont">
+        <div class="row main-content">
+            <div class="content">
+                <ul class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Amsterdam</a></li>
+                    <li><a href="#">Markets</a></li>
+                    <li class="active">Offer</li>
+                </ul>
+
+                <div class="offer">
+                    <div class="item-img">
+                        <div class="offer-swiper">
+                            <uib-carousel active="active">
+                                <uib-slide ng-repeat="slide in offerCtrl.offerData.photos" index="slide.id">
+                                    <img ng-src="{{slide.src}}" style="margin:auto;">
+                                </uib-slide>
+                            </uib-carousel>
+                        </div>
+
+                    </div>
+
+                    <div class="item-description">
+                        <div class="item-info">
+                            <div class="item-title">{{offerCtrl.offerData.title}}</div>
+
+                            <div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong> By:
+                                <strong>18 jul</strong></div>
+                        </div>
+                        <div class="item-text">
+                            {{offerCtrl.offerData.description}}
+                        </div>
+                    </div>
+                </div>
+                <div class="seller">
+                    <div class="item-img">
+                        <div class="image">
+                            <img ng-src="{{offerCtrl.sellerData.photo}}" alt="Item Image">
+                        </div>
+
+                        <button href="#" class="btn follow-btn">Follow</button>
+                    </div>
+                    <div class="item-description">
+                        <div class="status">Seller</div>
+                        <a href="seller-detail.html">
+                            <h5>{{offerCtrl.sellerData.title}}</h5>
+                        </a>
+
+                        <div class="seller-description-text">
+                            <p>{{offerCtrl.sellerData.description}}</p>
+
+                            <br><p>{{offerCtrl.sellerData.phone}}</p>
+                            <a class="blue-link">{{offerCtrl.sellerData.email}}</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="market">
+
+                    <div class="item-img">
+                        <div class="image">
+                            <img ng-src="{{offerCtrl.marketData.photo}}" alt="Item Image">
+                        </div>
+                    </div>
+                    <div class="item-description">
+                        <div class="status">Market</div>
+                        <a ui-sref="home.market-details({ region_id: offerCtrl.regionId, city_id: offerCtrl.cityId, market_id: offerCtrl.marketId })">
+                            <h5>{{offerCtrl.marketData.title}}</h5>
+                        </a>
+
+                        <div class="seller-description-text">
+                            <!--<p>01-01-2016 - 31-12-2017<br>-->
+                                {{offerCtrl.marketData.description}}</p>
+
+                            <br><p>{{offerCtrl.marketData.phone}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--<div class="all-detail">-->
+                    <!--<h4>Similar offers</h4>-->
+
+                    <!--<div class="items">-->
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="item">-->
+                            <!--<a href="#">-->
+                                <!--<div class="item-img"-->
+                                     <!--style="background-image: url('images/img/spring-produce-2.jpg')"></div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-description">-->
+                                <!--<div class="item-info">-->
+                                    <!--<a href="#">-->
+                                        <!--<div class="item-title">Oranges</div>-->
+                                    <!--</a>-->
+
+                                    <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong>-->
+                                        <!--By:-->
+                                        <!--<strong>18 jul</strong></div>-->
+                                <!--</div>-->
+                                <!--<div class="item-text">-->
+                                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque-->
+                                    <!--ullamcorper-->
+                                    <!--sagittis. Pellentesque blandit dignissim nunc vitae sodales.-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<a href="#" class="btn white-btn">SEE MORE</a>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row header">
+    <div class="logo">
+        <a ui-sref="home" ui-sref-opts="{reload: true}" title="Home">
+            <img src="assets/images/logo/logo.svg" alt="Logo" class="logo-1">
+            <img src="assets/images/logo/logo-small.svg" alt="Logo" class="logo-2">
+        </a>
+    </div>
+    <div class="filter-btn">
+        <span>Amsterdam</span>
+        <span class="icon-select"></span>
+    </div>
+    <div class="filter">
+        <div class="filter-title">
+            <span>Select options</span>
+            <span class="filter-close-btn icon-close"></span>
+        </div>
+        <form class="filter-form">
+            <select name="sel" id="sss" class="map" ng-model="headerCtrl.regionId" ng-change="headerCtrl.changeRegion()">
+                <!--<option value="default">Choose region</option>-->
+                <option ng-repeat="region in headerCtrl.allRegions" value="{{region.id}}">{{region.title}}</option>
+            </select>
+
+            <select name="sel" class="map" ng-model="headerCtrl.cityId" ng-change="headerCtrl.changeCity()">
+                <!--<option value="default">Choose region</option>-->
+                <option ng-repeat="city in headerCtrl.allCities" value="{{city.id}}">{{city.title}}</option>
+            </select>
+
+            <select name="sel2" id="ss" class="market" ng-model="headerCtrl.marketId">
+                <!--<option value="default">Choose market</option>-->
+                <option ng-repeat="market in headerCtrl.allMarkets" value="{{market.id}}">{{market.title}}</option>
+            </select>
+            <button class="btn" ng-click="headerCtrl.goListener()">Go</button>
+        </form>
+    </div>
+    <sign-in></sign-in>
+    <ng-nav-tmp></ng-nav-tmp>
+
+    <div class="wrap" ng-change-class="show-wrap" c-type="nav"></div>
+</div>

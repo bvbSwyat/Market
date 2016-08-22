@@ -1,0 +1,24 @@
+<span uib-dropdown is-open="status.isopen" auto-close="outsideClick">
+  <div class="user" id="simple-dropdown" uib-dropdown-toggle>
+      <spam class="icon-user user-position"></spam>sign in
+  </div>
+  <div class="login-window" uib-dropdown-menu aria-labelledby="simple-dropdown">
+        <form class="popup-form" >
+            <input type="text" placeholder="Login" ng-model="email" name="Login">
+            <input type="password" placeholder="Password" ng-model="pass" name="pass">
+
+            <button class="btn" ng-click="signIn()">Sign in</button>
+            <span class="blue-link" id="close-login-btn" ng-click="toggleDropdown($event)">Cansel</span>
+        </form>
+        <div class="login-social">
+            <p class="login-social-title">Login with your social account</p>
+            <a href="#"><span class="icon-fb"></span></a>
+            <a href="#"><span class="icon-instagram"></span></a>
+            <a href="#"><span class="icon-in"></span></a>
+        </div>
+        <div class="login-links">
+            <a href="#" class="blue-link">Forgot password?</a>
+            <a ui-sref="sign_up" class="blue-link">Dont have account?</a>
+        </div>
+    </div>
+</span>

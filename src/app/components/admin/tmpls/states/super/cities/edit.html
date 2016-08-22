@@ -1,0 +1,30 @@
+<div class="city for-edit popup">
+    <span class="close-popup-btn icon-close" ng-click="popup.cancel()"></span>
+    <h4>Edit city</h4>
+    <div class="popup-content">
+        <div class="photo">
+            <div class="image-field">
+                <div class="hover-effect"></div>
+                <img ng-if="!popup.cityData.newPhoto" ng-src="{{popup.cityData.photo}}" alt="">
+                <img ng-if="popup.cityData.newPhoto" ng-src="data:{{popup.cityData.newPhoto.filetype}};base64,{{popup.cityData.newPhoto.base64}}" alt="">
+                <input type="file" base-sixty-four-input ng-model="popup.cityData.newPhoto">
+                <span ng-if="popup.cityData.photo == Null && !popup.cityData.newPhoto">PHOTO</span>
+                <span ng-if="popup.cityData.newPhoto">EDIT PHOTO</span>
+            </div>
+        </div>
+        <div class="inputs">
+            <div class="city-title">
+              <input class="gray" type="text" placeholder="City" ng-model="popup.cityData.title">
+              <div class="symbols-count" ng-class="{'symbol-over': (255 - popup.cityData.title.length) < 0}">{{255 - popup.cityData.title.length}} symbols</div>
+            </div>
+
+
+            <select class="gray" name="sel2" id="ss" ng-model="popup.cityData.region" ng-options="region.title for region in popup.regions">
+                <option ng-if="!cityData.region" value="" selected="selected" disabled>Region</option>
+            </select>
+        </div>
+    </div>
+    <div class="popup-btn">
+        <button class="btn green-btn" ng-click="popup.save()">EDIT</button>
+    </div>
+</div>

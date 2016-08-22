@@ -1,0 +1,45 @@
+<div class="row main-content">
+    <div class="content">
+        <ul class="breadcrumb">
+            <li><a ui-sref="home">Home</a></li>
+            <li><a>{{detailsCtrl.regionData.title}}</a></li>
+            <li><a ui-sref="home.city({ region_id: detailsCtrl.regionData.id, city_id: detailsCtrl.cityData.id })">{{detailsCtrl.cityData.title}}</a></li>
+            <li class="active">{{detailsCtrl.marketData.title}}</li>
+        </ul>
+        <div class="detail-content">
+            <h3>{{detailsCtrl.marketData.title}}</h3>
+            <p>{{detailsCtrl.marketData.description}}</p>
+        </div>
+        <div class="detail-info">
+            <div class="market-info">
+                <ul class="market-info-list">
+                    <li>{{detailsCtrl.marketData.address}}</li>
+                    <li>{{detailsCtrl.marketData.phone}}</li>
+                </ul>
+            </div>
+            <div class="market-info-calendar">
+                <div class="swiper-container calendar-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="work-data">
+                                <ul class="calendar-list">
+                                    <li ng-repeat="schedule in detailsCtrl.marketData.schedule | objectLimit : detailsCtrl.dateLimit">
+                                        <strong>{{detailsCtrl.getMonthTitle($index)}},
+                                        </strong> {{detailsCtrl.getDayName($index)}}<br>
+                                        {{schedule.time_from + ' - ' + schedule.time_to}}</li>
+                                </ul>
+                                <div class="more-data blue-link"
+                                     ng-if="detailsCtrl.isNextPage()"
+                                     ng-click="detailsCtrl.dateLimit = detailsCtrl.dateLimit + 3">
+                                    See more date</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-map" id="map">
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="12px" height="11px" viewBox="0 0 12 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: bin/sketchtool 1.4 (305) - http://www.bohemiancoding.com/sketch -->
+    <title>chec</title>
+    <desc>Created with bin/sketchtool.</desc>
+    <defs></defs>
+    <g id="UI-kit" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="market-UI-kit" sketch:type="MSArtboardGroup" transform="translate(-804.000000, -123.000000)" fill="#FCA751">
+            <path d="M804.157535,127.796485 L807.638003,133.241798 C808.029341,133.854058 808.92237,133.857729 809.318727,133.248706 L814.98279,124.545581 C815.284041,124.082692 815.153008,123.463234 814.69012,123.161982 C814.227231,122.860731 813.607773,122.991764 813.306521,123.454652 L807.642459,132.157777 L809.323183,132.164685 L805.842714,126.719373 C805.545277,126.254023 804.926917,126.117903 804.461568,126.415339 C803.996219,126.712776 803.860098,127.331136 804.157535,127.796485 L804.157535,127.796485 Z" id="chec" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

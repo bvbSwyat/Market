@@ -1,0 +1,104 @@
+
+<div ui-view="title"></div>
+<div ui-view="mainContent"></div>
+
+<!--<div class="row page-title" style="background-image: url('assets/images/img/BoroughMarketTomatoes.jpg')">-->
+    <!--<div class="title">-->
+        <!--<a href="market_detail.html"><h1>AmMarket</h1></a>-->
+
+        <!--<p>Amsterdam, st. Sters, 34</p>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="row main-content">-->
+    <!--<div class="content">-->
+        <!--<div class="items-tools">-->
+            <!--<div class="item-result">-->
+                <!--{{homec.getResultsLength()}} results-->
+            <!--</div>-->
+            <!--<div class="item-filter">-->
+                <!--<div class="sort">-->
+                    <!--<span>Sort to:</span>-->
+                    <!--<a href="#" class="blue-link" ng-click="reverse = !reverse">Relevant ↓</a>-->
+                <!--</div>-->
+                <!--<div class="tabs">-->
+                    <!--<button ng-click="homec.isTabs = false" class="btn offer-btn" ng-class="{'selected' : !homec.isTabs}"><span class="btn-icon icon-offers"></span>Offer</button>-->
+                    <!--<button ng-click="homec.isTabs = true" class="btn seller-btn" ng-class="{'selected' : homec.isTabs}"><span class="btn-icon icon-user"></span>Sellers</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="tabs-content-is">-->
+            <!--<div class="items show-items" ng-if="!homec.isTabs">-->
+
+                <!--<div class="item" ng-repeat="offerItem in homec.offerArray | orderBy:'title':reverse | limitTo:homec.offerItemLimit">-->
+                    <!--<a href="seller-Offers.html">-->
+                        <!--<div class="item-img" ng-style="{'background-image': 'url(' + offerItem.img + ')'}"></div>-->
+                    <!--</a>-->
+
+                    <!--<div class="item-description">-->
+                        <!--<div class="item-info">-->
+                            <!--<a href="seller-Offers.html">-->
+                                <!--<div class="item-title">{{offerItem.title}}</div>-->
+                            <!--</a>-->
+
+                            <!--<div class="item-data"><span class="icon-clock"></span> On <strong>13 Jul</strong> By:-->
+                                <!--<strong>18 jul</strong></div>-->
+                        <!--</div>-->
+                        <!--<div class="item-text">-->
+                            <!--{{offerItem.description}}-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<a href="#" class="btn white-btn" ng-click="homec.setOfferLimit()" ng-if="homec.isMaxOfferLimit()">SEE MORE</a>-->
+            <!--</div>-->
+            <!--<div class="items show-items seller-items" ng-if="homec.isTabs">-->
+                <!--<div class="item" ng-repeat="sellerItem in homec.sellersArray | orderBy:'title':reverse | limitTo:homec.sellersItemLimit">-->
+                    <!--<a href="seller-detail.html">-->
+                        <!--<div class="item-img" ng-style="{'background-image': 'url(' + sellerItem.img + ')'}"></div>-->
+                    <!--</a>-->
+
+                    <!--<div class="item-description">-->
+                        <!--<div class="item-info">-->
+                            <!--<a href="seller-detail.html">-->
+                                <!--<div class="item-title">{{sellerItem.title}}</div>-->
+                            <!--</a>-->
+                            <!--<button class="btn follow-btn"-->
+                                    <!--ng-class="{'follower': !sellerItem.isFollower}"-->
+                                    <!--ng-click="sellerItem.setIsFollower()">-->
+                                <!--{{sellerItem.buttonName()}}-->
+                            <!--</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<a href="#" class="btn white-btn" ng-click="homec.setSellersLimit()" ng-if="homec.isMaxSellersLimit()">SEE MORE</a>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="popup market-popup">-->
+    <!--<div class="popup-content">-->
+        <!--<h2>Marketplace online service</h2>-->
+
+        <!--<p>Choose a trading platform easily</p>-->
+
+        <!--<form action="" class="popup-form">-->
+            <!--<select name="sel" id="sss" class="map">-->
+                <!--<option value="1">Amsterdam</option>-->
+                <!--<option value="1">Amsterdam</option>-->
+                <!--<option value="1">Amsterdam</option>-->
+            <!--</select>-->
+
+            <!--<select name="sel2" id="ss" class="market">-->
+                <!--<option value="1">AmMarket</option>-->
+                <!--<option value="1">AmMarket</option>-->
+                <!--<option value="1">AmMarket</option>-->
+                <!--<option value="1">AmMarket</option>-->
+            <!--</select>-->
+            <!--<button type="button" class="btn market-btn">Go</button>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->

@@ -1,0 +1,31 @@
+<div class="row admin-main-content">
+    <div class="admin-content">
+        <h4>All markets</h4>
+        <a class="btn add-btn" ui-sref="admin.super.markets.add">Add Market</a>
+        <div class="animate" ng-class="{active: sMarkets.marketsList}">
+          <div class="row admin-items">
+            <div class="admin-item market-items" ng-repeat="market in sMarkets.marketsList">
+                <img ng-src="{{market.photo}}" ng-class="{'no-image': !market.photo}" alt="">
+                <div class="item-info" ui-sref="admin.super.markets.view({ market_id: market.id })">
+                    <div class="title">{{market.title}}</div>
+
+                    <div class="address">{{market.address}}</div>
+                </div>
+                <div class="item-tools">
+                    <a>
+                        <div class="edit-btn" ui-sref="admin.super.markets.edit({ market_id: market.id })">
+                            <span class="icon-edit"></span>
+                        </div>
+                    </a>
+                    <div class="delete-btn" ui-sref="admin.super.markets.remove({ market_id: market.id })">
+                        <span class="icon-delete"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="btn white-btn">SEE MORE</a>
+        </div>
+
+    </div>
+</div>

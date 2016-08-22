@@ -1,0 +1,27 @@
+<div class="map change-marker popup">
+    <span class="close-popup-btn icon-close" ng-click="mapper.cancel()"></span>
+    <h4>Change marker</h4>
+
+    <div ng-controller="MapController as map" class="popup-content" map-lazy-load="https://maps.google.com/maps/api/js?{{map.mapKey}}">
+        <ng-map class="map" zoom="{{map.zoom}}" center="[{{mapper.markerPosition}}]">
+          <marker position="{{mapper.markerPosition}}"
+            draggable="true"
+            on-dragend="mapper.setNewAddress()"
+            optimized="false"
+            icon="{{map.markerConf}}"
+            on-click="mapper.openInfo('mapInfo')">
+          </marker>
+          <info-window id="mapInfo">
+            <div ng-non-bindable class="map-window">
+              <div class="map-window-img">
+              <img ng-src="{{mapper.content.market.photo}}" alt="No Image">
+              </div>
+              <div class="map-window-title">{{mapper.content.market.title}}</div>
+            </div>
+          </info-window>
+        </ng-map>
+    </div>
+    <div class="popup-btn">
+        <button class="btn green-btn" ng-click="mapper.save()">SAVE</button>
+    </div>
+</div>

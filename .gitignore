@@ -1,0 +1,11 @@
+node_modules/
+bower_components/
+coverage/
+.sass-cache/
+.idea/
+.tmp/
+dist/
+src/layout
+upload
+src/app/components/helper/apiURL.conf.js
+src/app/components/helper/google.key.conf.js

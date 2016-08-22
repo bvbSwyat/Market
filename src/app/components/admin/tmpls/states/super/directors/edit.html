@@ -1,0 +1,14 @@
+<div class="director for-edit popup">
+    <span class="close-popup-btn icon-close" ng-click="popup.cancel()"></span>
+    <h4>Edit director</h4>
+    <div class="popup-content">
+        <div class="inputs">
+            <input class="gray" type="text" placeholder="Name" ng-model="popup.directorData.username">
+            <input class="gray" type="text" placeholder="E-mail" ng-model="popup.directorData.email">
+            <input class="gray" type="text" placeholder="Telephone" ng-model="popup.directorData.phone">
+        </div>
+    </div>
+    <div class="popup-btn">
+        <button class="btn green-btn" ng-click="popup.save()">EDIT</button>
+    </div>
+</div>

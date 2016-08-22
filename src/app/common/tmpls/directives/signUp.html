@@ -1,0 +1,32 @@
+<div class="reg-area">
+    <h4>Create new account</h4>
+
+    <div class="reg-window">
+        <p>Sign up with <a href="#" class="blue-link">Facebook</a> or <a href="#" class="blue-link">Google</a></p>
+        <p class="or">or</p>
+
+        <form name="singUpForm" class="reg-form">
+            <input ng-model="user.email" type="email" placeholder="Your email">
+            <input ng-model="user.password" type="password" placeholder="Password">
+          <div ng-if="isUser">
+            <input ng-model="user.allowSMS" type="checkbox" id="like" value="">
+            <label for="like">I’d like to receive promotions, surveys, and updates via email and sms about services.</label>
+          </div>
+          <div ng-if="!isUser">
+            <input ng-model="isSeller" type="radio" value="true" name="for" id="seller">
+            <label for="seller">Am seller</label>
+            <input ng-model="isMarket" type="radio" uib-btn-radio="true" name="for" id="market">
+            <label for="market">For market</label>
+          </div>
+          <button ng-click="signUp(singUpForm)" class="btn">Sign up</button>
+        </form>
+
+        <p class="blue-link have-acc user" ng-click="toggleSingIn($event)">Do you have account?</p>
+    </div>
+  <div ng-if="isUser">
+    <a ng-click="toggleUserType(true)" class="blue-link reg-link"><span class="icon-market"></span>For seller or market</a>
+  </div>
+  <div ng-if="!isUser">
+    <a ng-click="toggleUserType(false)" class="blue-link reg-link"><span class="icon-user"></span>For customer</a>
+  </div>
+</div>

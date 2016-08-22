@@ -1,0 +1,174 @@
+<div class="market-detail popup">
+    <span class="close-popup-btn icon-close" ng-click="popup.cancel()"></span>
+    <div class="popup-content animate" ng-class="{active: popup.marketData.time}">
+        <div class="market-info">
+            <div class="market-image">
+                <img ng-src="{{popup.marketData.photo}}"
+                     ng-class="{'no-image': !popup.marketData.photo}"
+                     alt="">
+            </div>
+            <div class="market-deckr">
+                <h4>{{popup.marketData.title}}</h4>
+
+                <p>{{popup.marketData.phone}}</p>
+
+                <p>{{popup.marketData.email}}</p>
+
+                <P>{{popup.marketData.address}}</P>
+
+                <P>{{popup.marketData.group_facebook}}</P>
+
+                <P>{{popup.marketData.group_instagram}}</P>
+            </div>
+        </div>
+        <div class="row">
+            <p>
+                {{popup.marketData.description}}
+            </p>
+        </div>
+        <div class="director">
+            <div class="block">Director:</div>
+            <div class="block"><b>{{popup.marketData.director.name}}</b></div>
+            <div class="block ng-hide" ng-show="popup.marketData.user_id == null" ><b>No director data</b></div>
+            <div class="block">{{popup.marketData.director.email}}</div>
+            <div class="block">{{popup.marketData.director.phone}}</div>
+        </div>
+
+
+      <ng-map ng-controller="MapController as mapp"
+              class="map" zoom="{{mapp.zoom}}"
+              center="[{{popup.marketData.latitude}}, {{popup.marketData.longitude}}]">
+          <marker position="{{popup.marketData.latitude}}, {{popup.marketData.longitude}}"
+            optimized="false"
+            icon="{{mapp.markerConf}}"
+            on-click="mapp.openInfo('mapInfo')">
+          </marker>
+          <info-window id="mapInfo">
+            <div ng-non-bindable class="map-window">
+              <div class="map-window-img">
+              <img ng-src="{{popup.marketData.photo}}" alt="No Image">
+              </div>
+              <div class="map-window-title">{{popup.marketData.title}}</div>
+            </div>
+          </info-window>
+        </ng-map>
+
+        <div class="add-market-days">
+            <div class="days-time">
+                <div class="days-time-week time-title ng-hide" ng-show="popup.marketData.time.length > 0">
+                      <div class="days">
+                          <div class="title"><span class="required">Day of work</span></div>
+                      </div>
+                  <div class="time">
+                          <div class="title"><span class="required">Time</span></div>
+                    </div>
+                </div>
+                <div class="days-time-week" ng-repeat="time in popup.marketData.time track by $index">
+                    <div class="days">
+                        <div class="days-week">
+                            <div class="add-day">
+                                <input type="checkbox"
+                                       class="day"
+                                       id="chkMon{{$index}}"
+                                       ng-click="sMarkets.radioDay('monday', time.id)"
+                                       ng-model="time.monday"
+                                       disabled>
+                                <label for="chkMon{{$index}}">
+                                    Mon
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox"
+                                       class="day" id="chkTue{{$index}}"
+                                       ng-click="sMarkets.radioDay('tuesday', time.id)"
+                                       ng-model="time.tuesday"
+                                       disabled>
+                                <label for="chkTue{{$index}}">
+                                    Tue
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox" class="day"
+                                       id="chkWed{{$index}}"
+                                       ng-click="sMarkets.radioDay('wednesday', time.id)"
+                                       ng-model="time.wednesday"
+                                        disabled>
+                                <label for="chkWed{{$index}}">
+                                    Wed
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox" class="day"
+                                       id="chkThu{{$index}}"
+                                       ng-click="sMarkets.radioDay('thursday', time.id)"
+                                       ng-model="time.thursday"
+                                        disabled>
+                                <label for="chkThu{{$index}}">
+                                    Thu
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox" class="day"
+                                       id="chkFri{{$index}}"
+                                       ng-click="sMarkets.radioDay('friday', time.id)"
+                                       ng-model="time.friday"
+                                        disabled>
+                                <label for="chkFri{{$index}}">
+                                    Fri
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox" class="day"
+                                       id="chkSat{{$index}}"
+                                       ng-click="sMarkets.radioDay('saturday', time.id)"
+                                       ng-model="time.saturday"
+                                        disabled>
+                                <label for="chkSat{{$index}}">
+                                    Sat
+                                </label>
+                            </div>
+                            <div class="add-day">
+                                <input type="checkbox" class="day"
+                                       id="chkSun{{$index}}"
+                                       ng-click="sMarkets.radioDay('sunday', time.id)"
+                                       ng-model="time.sunday"
+                                        disabled>
+                                <label for="chkSun{{$index}}">
+                                    Sun
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <div class="time-week">
+                            <select name="sel2" class="gray-small" disabled
+                                    ng-model="time.from_h"
+                                    ng-options="hour for hour in popup.hours">
+                            </select>
+                            :
+                            <select name="sel2" class="gray-small" disabled
+                                    ng-model="time.from_m"
+                                    ng-options="hour for hour in popup.minutes">
+                            </select>
+                            —
+                            <select name="sel2" class="gray-small" disabled
+                                    ng-model="time.to_h"
+                                    ng-options="hour for hour in popup.hours">
+                            </select>
+                            :
+                            <select name="sel2" class="gray-small" disabled
+                                    ng-model="time.to_m"
+                                    ng-options="hour for hour in popup.minutes">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="extra-date ng-hide" ng-show="popup.marketData.extra">
+            <div class="title"><span>Extra date</span></div>
+            <div class="data">Day of: 23.05.16</div>
+            <div class="data">Day on: 23.05.16 Time: 10:00-18.30</div>
+        </div>
+    </div>
+  </div>
